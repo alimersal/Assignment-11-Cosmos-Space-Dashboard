@@ -20,6 +20,17 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" crossorigin href="./css/style.css" />
+    <style>
+      @media (max-width: 1023px) {
+        #sidebar {
+          transform: translateX(-100%);
+          z-index: 50;
+        }
+        #sidebar.active {
+          transform: translateX(0);
+        }
+      }
+    </style>
   </head>
   <body
     class="bg-linear-to-br from-space-dark via-slate-900 to-space-blue font-inter text-white"
@@ -28,7 +39,7 @@
       id="sidebar"
       class="fixed top-0 left-0 h-full w-64 bg-slate-900 border-r border-slate-800 flex flex-col transition-transform duration-300 sidebar-mobile"
     >
-      <div class="p-4 border-b border-slate-800">
+      <div class="p-4 border-b border-slate-800 flex items-center justify-between">
         <div class="flex items-center space-x-3">
           <div
             class="w-10 h-10 bg-linear-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center"
@@ -44,6 +55,9 @@
             <p class="text-xs text-slate-400">Space Dashboard</p>
           </div>
         </div>
+        <button id="sidebar-close" class="lg:hidden text-slate-400 hover:text-white transition-colors">
+          <i class="fas fa-times text-xl"></i>
+        </button>
       </div>
       <nav class="flex-1 p-4 space-y-1 overflow-y-auto">
         <a
